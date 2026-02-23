@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Per le mie compagne di danza</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: linear-gradient(135deg, #0f0f1e 0%, #1a0a2e 50%, #16213e 100%);
+            color: #fff;
+            overflow-x: hidden;
+            min-height: 100vh;
+        }
+
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .star {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #fff;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 40px 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 80px;
+            animation: slideDown 0.8s ease-out;
+        }
+
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            font-size: 4em;
+            font-weight: 900;
+            margin-bottom: 15px;
+            background: linear-gradient(135deg, #ff1654, #ff6b9d, #ffa726);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            letter-spacing: -2px;
+            text-shadow: 0 0 30px rgba(255, 22, 84, 0.3);
+        }
+
+        .subtitle {
+            font-size: 1.3em;
+            color: #ff6b9d;
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .divider {
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff1654, #ffa726);
+            margin: 30px auto;
+            border-radius: 2px;
+        }
+
+        .intro {
+            text-align: center;
+            margin-bottom: 60px;
+            font-size: 1.1em;
+            color: #e0e0e0;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.8;
+        }
+
+        .dediche-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .dedica-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            border-radius: 15px;
+            padding: 35px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            animation: fadeIn 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .dedica-card:nth-child(1) { animation-delay: 0.1s; }
+        .dedica-card:nth-child(2) { animation-delay: 0.2s; }
+        .dedica-card:nth-child(3) { animation-delay: 0.3s; }
+        .dedica-card:nth-child(4) { animation-delay: 0.4s; }
+        .dedica-card:nth-child(5) { animation-delay: 0.5s; }
+        .dedica-card:nth-child(6) { animation-delay: 0.6s; }
+        .dedica-card:nth-child(7) { animation-delay: 0.7s; }
+        .dedica-card:nth-child(8) { animation-delay: 0.8s; }
+
+        .dedica-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200px;
+            height: 200px;
+            background: radial-gradient(circle, rgba(255, 107, 157, 0.3) 0%, transparent 70%);
+            border-radius: 50%;
+        }
+
+        .dedica-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(255, 107, 157, 0.6);
+            background: rgba(255, 255, 255, 0.08);
+            box-shadow: 0 20px 40px rgba(255, 22, 84, 0.2);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .emoji {
+            font-size: 2.5em;
+            margin-right: 15px;
+            filter: drop-shadow(0 0 8px rgba(255, 107, 157, 0.5));
+        }
+
+        .dedica-card h2 {
+            font-size: 1.4em;
+            font-weight: 700;
+            background: linear-gradient(135deg, #ff1654, #ff6b9d);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin: 0;
+        }
+
+        .dedica-card p {
+            font-size: 0.95em;
+            line-height: 1.8;
+            color: #d0d0d0;
+            position: relative;
+            z-index: 1;
+        }
+
+        .dedica-card p em {
+            color: #ff6b9d;
+            font-style: italic;
+            font-weight: 600;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border-top: 1px solid rgba(255, 107, 157, 0.3);
+            border-radius: 20px 20px 0 0;
+            padding: 40px 20px;
+            text-align: center;
+            margin-top: 80px;
+        }
+
+        .footer-text {
+            font-size: 1em;
+            color: #ff6b9d;
+            font-weight: 500;
+            letter-spacing: 1px;
+            margin-bottom: 15px;
+        }
+
+        .footer-subtext {
+            font-size: 0.9em;
+            color: #a0a0a0;
+            font-weight: 300;
+        }
+
+        .signature {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .signature-item {
+            background: rgba(255, 107, 157, 0.1);
+            padding: 10px 20px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 107, 157, 0.3);
+            font-size: 0.85em;
+            color: #ff6b9d;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.5em;
+            }
+
+            .subtitle {
+                font-size: 1em;
+            }
+
+            .dediche-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .dedica-card {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="stars" id="starsContainer"></div>
+
+    <div class="container">
+        <header>
+            <h1>💃 Per le Mie Compagne 💃</h1>
+            <p class="subtitle">Di Danza Latino Americano</p>
+            <div class="divider"></div>
+        </header>
+
+        <div class="intro">
+            <p>Dediche sincere per le donne straordinarie che ballano con il fuoco del Latino Americano nel cuore, per chi sceglie ogni giorno di muoversi a ritmo di Samba, Cha cha cha e Paso doble.</p>
+        </div>
+
+        <div class="dediche-grid">
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">💃</span>
+                    <h2>Straordinarie Compagne</h2>
+                </div>
+                <p>Avete qualcosa di più prezioso della perfezione: la capacità di ballare quando le cose non vanno, di sorridere quando i piedi fanno male e di non mollare mai. Vi ammiro per la <em>dedizione</em> che portate in ogni movimento, per il modo in cui ballate la Samba con il fuoco del Latino Americano nel sangue. Ballare con voi significa condividere la determinazione di essere sempre migliori, mantenendo vivo quel respiro del vostro stile latino.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">✨</span>
+                    <h2>Chi Non Rinuncia Mai</h2>
+                </div>
+                <p>Quel che mi colpisce di voi è la caparbietà. Quando sbagliate un Cha cha cha, riprovate. La musica latino americana scorre nelle vostre vene e quella non vi abbandona mai. Vedo persone che hanno capito che la danza non è una competenza, è una scelta consapevole. Grazie per insegnarmi che <em>l'eccellenza è un viaggio attraverso il fuoco della danza caraibica.</em></p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">🎭</span>
+                    <h2>Complici di Palco</h2>
+                </div>
+                <p>Quando il sipario si alza, siamo lì insieme. Vi sento nel ritmo che manteniamo, nella Rumba che scorre tra di noi, carica di calore del Latino Americano. Nel teatro della danza siete le mie alleate più sincere: non potete fingere, non potete nascondervi. Quello che date è <em>autentico.</em> Non posso permettermi di essere mediocre quando accanto a me ci sono donne che ballano con il fuoco del Latino Americano.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">🔥</span>
+                    <h2>Valore della Passione</h2>
+                </div>
+                <p>Vi guardo durante le prove: il Paso doble incandescente, il movimento sensuale del Jive. Alcuni giorni siete esauste, ma siete lì. Perché capite che la danza latino americana non è un'opzione, è una necessità. È il vostro respiro. Mi insegna che <em>la vera bellezza non viene dalla perfezione, ma dall'intenzione del Latino Americano che ci mettete.</em> Sincronizzate con la musica del Latino Americano.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">🌹</span>
+                    <h2>Mi Hanno Resa Migliore</h2>
+                </div>
+                <p>Se ballo con fiducia è grazie a voi. Non solo per i passi di Samba, ma perché mi date un motivo per impegnarmi. Ogni correzione di Rumba è un dono, ogni incoraggiamento è <em>generosità.</em> Ballare insieme nel fuoco del Latino Americano non è coincidenza, è una benedizione. Mi avete insegnato che la competizione non deve distruggere la comunità.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">💪</span>
+                    <h2>La Strada Difficile</h2>
+                </div>
+                <p>Fare la danzatrice di Latino Americano non è la scelta più facile. Non vi rende ricche, non vi dà weekend tranquilli. Ma il vostro corpo ha bisogno del ritmo infuocato del Cha cha cha, della sensualità del Paso doble, dell'energia del Jive. <em>Avete il coraggio di essere voi stesse completamente.</em> È cosa da eroine.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">🎵</span>
+                    <h2>Donne Straordinarie</h2>
+                </div>
+                <p>Vi conosco al di là della danza. So della vostra determinazione, delle vostre frustrazioni, delle vostre gioie. La grazia che portate sulla scena viene da lì. La danza latino americana non è separata dalle vostre vite, è integrata in chi siete. Portate lo spirito del Latino Americano nel quotidiano, la passione della Samba nei vostri futuri. <em>Persone complete</em> che vivono il Latino Americano.</p>
+            </div>
+
+            <div class="dedica-card">
+                <div class="card-header">
+                    <span class="emoji">🌟</span>
+                    <h2>Legame Indissolubile</h2>
+                </div>
+                <p>Non so se potrei descrivere quello che proviamo quando danziamo insieme al ritmo del Latino Americano. <em>Ci sono parole che non bastano.</em> Quando la musica accende e noi iniziamo a muoverci al suono della Rumba, è come se diventassimo un organismo unico con cuori che battono all'unisono. Mi ricorderò i vostri sorrisi, il vostro incoraggiamento, il vostro esempio nel Latino Americano.</p>
+            </div>
+        </div>
+
+        <footer>
+            <div class="footer-text">💃 Ballate con il fuoco del Latino Americano nel cuore 💃</div>
+            <div class="footer-subtext">Con amore e ammirazione infinita</div>
+            <div class="signature">
+                <div class="signature-item">Dediche dalla pista da ballo</div>
+                <div class="signature-item">For latino dancers</div>
+            </div>
+        </footer>
+    </div>
+
+    <script>
+        // Crea stelline animate di background
+        const starsContainer = document.getElementById('starsContainer');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('div');
+            star.className = 'star';
+            star.style.left = Math.random() * 100 + '%';
+            star.style.top = Math.random() * 100 + '%';
+            star.style.animationDelay = Math.random() * 3 + 's';
+            starsContainer.appendChild(star);
+        }
+    </script>
+</body>
+</html>
