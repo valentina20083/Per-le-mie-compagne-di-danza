@@ -20,7 +20,7 @@
             min-height: 100vh;
         }
 
-        /* STELLE */
+        /* STELLE + CUORI */
         .stars, .hearts {
             position: fixed;
             top: 0;
@@ -41,11 +41,10 @@
         }
 
         @keyframes twinkle {
-            0%, 100% { opacity: 0.3; }
+            0%,100% { opacity: 0.3; }
             50% { opacity: 1; }
         }
 
-        /* CUORI */
         .heart {
             position: absolute;
             color: rgba(255, 107, 157, 0.4);
@@ -85,8 +84,6 @@
             background: linear-gradient(135deg, #ff1654, #ff6b9d, #ffa726);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            background-clip: text;
-            letter-spacing: -2px;
         }
 
         .subtitle {
@@ -174,6 +171,7 @@
         .footer-text {
             color: #ff6b9d;
             font-weight: 500;
+            margin-bottom: 10px;
         }
 
         @media (max-width: 768px) {
@@ -185,70 +183,97 @@
 
 <body>
 
-    <div class="stars" id="starsContainer"></div>
-    <div class="hearts" id="heartsContainer"></div>
+<div class="stars" id="starsContainer"></div>
+<div class="hearts" id="heartsContainer"></div>
 
-    <div class="container">
-        <header>
-            <h1>💃 Per le Mie Compagne 💃</h1>
-            <p class="subtitle">Di Danza Latino Americano</p>
-            <div class="divider"></div>
-        </header>
+<div class="container">
 
-        <div class="intro">
-            Dediche sincere per le donne straordinarie che ballano con il fuoco nel cuore.
-        </div>
+<header>
+    <h1>💃 Per le Mie Compagne 💃</h1>
+    <p class="subtitle">Di Danza Latino Americano</p>
+    <div class="divider"></div>
+</header>
 
-        <div class="dediche-grid">
-            <div class="dedica-card">
-                <div class="card-header">
-                    <span class="emoji">💃</span>
-                    <h2>Straordinarie Compagne</h2>
-                </div>
-                <p>Avete qualcosa di più prezioso della perfezione: la capacità di ballare quando le cose non vanno e di non mollare mai.</p>
-            </div>
+<div class="intro">
+    Dediche sincere per le donne straordinarie che ballano con il fuoco del Latino Americano nel cuore,
+    per chi sceglie ogni giorno di muoversi a ritmo di Samba, Cha cha cha e Paso doble.
+</div>
 
-            <div class="dedica-card">
-                <div class="card-header">
-                    <span class="emoji">🔥</span>
-                    <h2>Valore della Passione</h2>
-                </div>
-                <p>Alcuni giorni siete esauste, ma siete lì. Perché la danza non è un'opzione, è una necessità.</p>
-            </div>
-        </div>
+<div class="dediche-grid">
 
-        <footer>
-            <div class="footer-text">💃 Ballate con il fuoco nel cuore 💃</div>
-        </footer>
-    </div>
+<div class="dedica-card">
+<div class="card-header">
+<span class="emoji">💃</span>
+<h2>Straordinarie Compagne</h2>
+</div>
+<p>
+Avete qualcosa di più prezioso della perfezione: la capacità di ballare quando le cose non vanno,
+di sorridere quando i piedi fanno male e di non mollare mai.
+</p>
+<p>
+Vi ammiro per la dedizione che portate in ogni movimento,
+per il modo in cui ballate la Samba con il fuoco nel sangue.
+</p>
+<p>
+Ballare con voi significa condividere determinazione,
+crescita e rispetto reciproco.
+</p>
+</div>
 
-    <script>
-        // STELLE
-        const starsContainer = document.getElementById('starsContainer');
-        for (let i = 0; i < 100; i++) {
-            const star = document.createElement('div');
-            star.className = 'star';
-            star.style.left = Math.random() * 100 + '%';
-            star.style.top = Math.random() * 100 + '%';
-            star.style.animationDelay = Math.random() * 3 + 's';
-            starsContainer.appendChild(star);
-        }
+<div class="dedica-card">
+<div class="card-header">
+<span class="emoji">🔥</span>
+<h2>Valore della Passione</h2>
+</div>
+<p>
+Vi guardo durante le prove: stanche, concentrate, vere.
+Alcuni giorni sono difficili, ma siete sempre lì.
+</p>
+<p>
+Perché la danza non è un'opzione.
+È una necessità.
+È il vostro respiro.
+</p>
+<p>
+Mi insegnate che la bellezza non nasce dalla perfezione,
+ma dall'intenzione che mettiamo in ogni passo.
+</p>
+</div>
 
-        // CUORI
-        const heartsContainer = document.getElementById('heartsContainer');
-        const heartSymbols = ['❤','💖','💗','💓'];
+</div>
 
-        for (let i = 0; i < 25; i++) {
-            const heart = document.createElement('div');
-            heart.className = 'heart';
-            heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
-            heart.style.left = Math.random() * 100 + '%';
-            heart.style.animationDuration = (5 + Math.random() * 5) + 's';
-            heart.style.animationDelay = Math.random() * 5 + 's';
-            heart.style.fontSize = (15 + Math.random() * 25) + 'px';
-            heartsContainer.appendChild(heart);
-        }
-    </script>
+<footer>
+<div class="footer-text">💃 Ballate con il fuoco nel cuore 💃</div>
+<div>Con amore e ammirazione infinita</div>
+</footer>
+
+</div>
+
+<script>
+const starsContainer = document.getElementById('starsContainer');
+for (let i = 0; i < 100; i++) {
+    const star = document.createElement('div');
+    star.className = 'star';
+    star.style.left = Math.random() * 100 + '%';
+    star.style.top = Math.random() * 100 + '%';
+    star.style.animationDelay = Math.random() * 3 + 's';
+    starsContainer.appendChild(star);
+}
+
+const heartsContainer = document.getElementById('heartsContainer');
+const heartSymbols = ['❤','💖','💗','💓'];
+
+for (let i = 0; i < 25; i++) {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.innerHTML = heartSymbols[Math.floor(Math.random() * heartSymbols.length)];
+    heart.style.left = Math.random() * 100 + '%';
+    heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+    heart.style.animationDelay = Math.random() * 5 + 's';
+    heart.style.fontSize = (15 + Math.random() * 25) + 'px';
+    heartsContainer.appendChild(heart);
+}
+</script>
 
 </body>
 </html>
