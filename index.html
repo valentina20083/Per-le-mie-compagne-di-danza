@@ -161,11 +161,6 @@ footer {
     color: #ff6b9d;
     font-weight: bold;
 }
-
-/* Player audio invisibile ma pronto */
-#audioContainer {
-    display: none;
-}
 </style>
 </head>
 
@@ -264,9 +259,9 @@ Dediche sincere per donne straordinarie che trasformano la pista in emozione pur
 <div>Con amore e ammirazione infinita</div>
 </footer>
 
-<!-- Audio invisibile pronto -->
-<div id="audioContainer">
-  <audio id="calmaAudio" loop>
+<!-- Player audio "Calma" -->
+<div style="position: fixed; bottom: 20px; right: 20px; z-index: 10; background: rgba(0,0,0,0.5); padding: 10px 15px; border-radius: 10px;">
+  <audio controls autoplay loop>
     <source src="calma.mp3" type="audio/mpeg">
     Il tuo browser non supporta l'audio.
   </audio>
@@ -275,7 +270,6 @@ Dediche sincere per donne straordinarie che trasformano la pista in emozione pur
 </div>
 
 <script>
-// Stelle
 const starsContainer = document.getElementById('starsContainer');
 for (let i=0;i<100;i++){
     const star=document.createElement('div');
@@ -286,9 +280,9 @@ for (let i=0;i<100;i++){
     starsContainer.appendChild(star);
 }
 
-// Cuori
 const heartsContainer=document.getElementById('heartsContainer');
 const heartSymbols=['❤','💖','💗','💓'];
+
 for(let i=0;i<30;i++){
     const heart=document.createElement('div');
     heart.className='heart';
@@ -299,16 +293,6 @@ for(let i=0;i<30;i++){
     heart.style.fontSize=(15+Math.random()*25)+'px';
     heartsContainer.appendChild(heart);
 }
-
-// Avvio audio al primo click/tap
-const audio = document.getElementById('calmaAudio');
-function startAudio() {
-    audio.play();
-    document.removeEventListener('click', startAudio);
-    document.removeEventListener('touchstart', startAudio);
-}
-document.addEventListener('click', startAudio);
-document.addEventListener('touchstart', startAudio);
 </script>
 
 </body>
