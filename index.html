@@ -4,86 +4,168 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Per le mie compagne di danza</title>
+
 <style>
-* { margin:0; padding:0; box-sizing:border-box; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
     font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg,#0f0f1e 0%,#1a0a2e 50%,#16213e 100%);
-    color:#fff;
-    min-height:100vh;
-    overflow-x:hidden;
+    background: linear-gradient(135deg, #0f0f1e 0%, #1a0a2e 50%, #16213e 100%);
+    color: #fff;
+    overflow-x: hidden;
+    min-height: 100vh;
 }
 
 /* SFONDO */
 .stars, .hearts {
-    position:fixed; top:0; left:0;
-    width:100%; height:100%;
-    pointer-events:none; z-index:0;
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 0;
 }
 
 .star {
-    position:absolute; width:2px; height:2px;
-    background:#fff; border-radius:50%;
+    position: absolute;
+    width: 2px; height: 2px;
+    background: #fff;
+    border-radius: 50%;
     animation: twinkle 3s infinite;
 }
 
 @keyframes twinkle {
-    0%,100%{opacity:0.3;} 50%{opacity:1;}
+    0%,100% { opacity: 0.3; }
+    50% { opacity: 1; }
 }
 
 .heart {
-    position:absolute; color:rgba(255,107,157,0.4);
+    position: absolute;
+    color: rgba(255,107,157,0.4);
     animation: floatHeart linear infinite;
 }
 
 @keyframes floatHeart {
-    0% { transform:translateY(100vh) scale(0.8); opacity:0; }
-    10% { opacity:0.6; }
-    50% { opacity:0.8; }
-    100% { transform:translateY(-10vh) scale(1.2); opacity:0; }
+    0% { transform: translateY(100vh) scale(0.8); opacity: 0; }
+    10% { opacity: 0.6; }
+    50% { opacity: 0.8; }
+    100% { transform: translateY(-10vh) scale(1.2); opacity: 0; }
 }
 
 /* CONTENUTO */
-.container { max-width:1100px; margin:0 auto; padding:40px 20px; position:relative; z-index:1; }
-
-header { text-align:center; margin-bottom:60px; }
-
-h1 { font-size:3.5em; font-weight:900; background:linear-gradient(135deg,#ff1654,#ff6b9d,#ffa726); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
-
-.subtitle { color:#ff6b9d; margin-top:10px; }
-
-.divider { width:100px; height:4px; background:linear-gradient(90deg,#ff1654,#ffa726); margin:25px auto; border-radius:2px; }
-
-.intro { text-align:center; margin-bottom:60px; line-height:1.8; color:#e0e0e0; }
-
-.dediche-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(320px,1fr)); gap:30px; }
-
-.dedica-card {
-    background:rgba(255,255,255,0.05);
-    backdrop-filter:blur(10px);
-    border:1px solid rgba(255,107,157,0.3);
-    border-radius:15px; padding:30px;
-    transition:0.3s;
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    position: relative;
+    z-index: 1;
 }
 
-.dedica-card:hover { transform:translateY(-10px); box-shadow:0 20px 40px rgba(255,22,84,0.2); }
+header {
+    text-align: center;
+    margin-bottom: 60px;
+}
 
-.card-header { display:flex; align-items:center; margin-bottom:15px; }
+h1 {
+    font-size: 3.5em;
+    font-weight: 900;
+    background: linear-gradient(135deg,#ff1654,#ff6b9d,#ffa726);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
 
-.emoji { font-size:2em; margin-right:10px; }
+.subtitle {
+    color: #ff6b9d;
+    margin-top: 10px;
+}
 
-.dedica-card h2 { background:linear-gradient(135deg,#ff1654,#ff6b9d); -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+.divider {
+    width: 100px;
+    height: 4px;
+    background: linear-gradient(90deg,#ff1654,#ffa726);
+    margin: 25px auto;
+    border-radius: 2px;
+}
 
-.dedica-card p { margin-bottom:10px; line-height:1.6; color:#d0d0d0; }
+.intro {
+    text-align: center;
+    margin-bottom: 60px;
+    line-height: 1.8;
+    color: #e0e0e0;
+}
 
-.paragraph-image { width:120px; border-radius:10px; margin:10px 0; display:block; box-shadow:0 8px 20px rgba(0,0,0,0.4); transition:0.3s; }
+.dediche-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
+    gap: 30px;
+}
 
-.paragraph-image:hover { transform:scale(1.05); }
+.dedica-card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,107,157,0.3);
+    border-radius: 15px;
+    padding: 30px;
+    transition: 0.3s;
+}
 
-footer { margin-top:80px; text-align:center; padding:40px 20px; border-top:1px solid rgba(255,107,157,0.3); }
+.dedica-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(255,22,84,0.2);
+}
 
-.footer-text { color:#ff6b9d; font-weight:bold; }
+.card-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.emoji {
+    font-size: 2em;
+    margin-right: 10px;
+}
+
+.dedica-card h2 {
+    background: linear-gradient(135deg,#ff1654,#ff6b9d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.dedica-card p {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #d0d0d0;
+}
+
+/* IMMAGINI */
+.paragraph-image {
+    width: 120px;
+    border-radius: 10px;
+    margin: 10px 0;
+    display: block;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+    transition: 0.3s;
+}
+
+.paragraph-image:hover {
+    transform: scale(1.05);
+}
+
+footer {
+    margin-top: 80px;
+    text-align: center;
+    padding: 40px 20px;
+    border-top: 1px solid rgba(255,107,157,0.3);
+}
+
+.footer-text {
+    color: #ff6b9d;
+    font-weight: bold;
+}
+
+/* Player audio invisibile ma pronto */
+#audioContainer {
+    display: none;
+}
 </style>
 </head>
 
@@ -100,7 +182,9 @@ footer { margin-top:80px; text-align:center; padding:40px 20px; border-top:1px s
 <div class="divider"></div>
 </header>
 
-<div class="intro">Dediche sincere per donne straordinarie che trasformano la pista in emozione pura.</div>
+<div class="intro">
+Dediche sincere per donne straordinarie che trasformano la pista in emozione pura.
+</div>
 
 <div class="dediche-grid">
 
@@ -140,6 +224,39 @@ footer { margin-top:80px; text-align:center; padding:40px 20px; border-top:1px s
 <p>E questo vi rende straordinarie.</p>
 </div>
 
+<!-- CARD 4 -->
+<div class="dedica-card">
+<div class="card-header"><span class="emoji">🌹</span><h2>Eleganza</h2></div>
+<p>Siete delicate ma forti.</p>
+<p>Leggere ma determinate.</p>
+<p>Sensibili ma coraggiose.</p>
+<p>Ogni movimento racconta qualcosa.</p>
+<p>Ogni sguardo comunica energia.</p>
+<p>Ogni esibizione lascia il segno.</p>
+</div>
+
+<!-- CARD 5 -->
+<div class="dedica-card">
+<div class="card-header"><span class="emoji">💪</span><h2>Coraggio</h2></div>
+<p>Non scegliete la strada più semplice.</p>
+<p>Scegliete quella che vi fa crescere.</p>
+<p>Affrontate palcoscenici e paure.</p>
+<p>Accettate il giudizio.</p>
+<p>Vi rialzate sempre.</p>
+<p>E tornate più forti di prima.</p>
+</div>
+
+<!-- CARD 6 -->
+<div class="dedica-card">
+<div class="card-header"><span class="emoji">🌟</span><h2>Un Legame Unico</h2></div>
+<p>Quando balliamo insieme diventiamo un unico respiro.</p>
+<p>Un unico ritmo.</p>
+<p>Un unico battito.</p>
+<p>Ci sosteniamo nei momenti difficili.</p>
+<p>Festeggiamo ogni traguardo.</p>
+<p>E creiamo qualcosa che va oltre la danza.</p>
+</div>
+
 </div>
 
 <footer>
@@ -148,10 +265,12 @@ footer { margin-top:80px; text-align:center; padding:40px 20px; border-top:1px s
 </footer>
 
 <!-- Audio invisibile pronto -->
-<audio id="calmaAudio" loop>
-  <source src="calma.mp3" type="audio/mpeg">
-  Il tuo browser non supporta l'audio.
-</audio>
+<div id="audioContainer">
+  <audio id="calmaAudio" loop>
+    <source src="calma.mp3" type="audio/mpeg">
+    Il tuo browser non supporta l'audio.
+  </audio>
+</div>
 
 </div>
 
